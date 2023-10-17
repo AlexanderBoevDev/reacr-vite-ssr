@@ -1,7 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Link, Outlet } from 'react-router-dom';
 import React from "react";
 
-// console.log(import.meta.env);
+console.log(import.meta.env);
 
 export const Page:React.FC = () => {
   return (
@@ -9,10 +9,24 @@ export const Page:React.FC = () => {
       <header>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink
+              to="/about"
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              About
+            </NavLink>
           </li>
         </ul>
       </header>

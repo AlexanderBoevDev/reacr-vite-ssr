@@ -1,24 +1,22 @@
 import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Routers } from "./routers";
+import { Provider } from 'react-redux';
+import { getStore } from './store';
 
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 async function render(pageContext) {
-  const { Page } = pageContext
+  const { Page } = pageContext;
+  const store = getStore(pageContext.PRELOADED_STATE);
   hydrateRoot(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     document.getElementById('react-root'),
     <BrowserRouter>
-      {/*eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
-      {/*@ts-ignore*/}
-      <Routers>
-        <Page {...pageContext.pageProps} />
-      </Routers>
+      <Provider store={store}>
+        <Routers>
+          <Page {...pageContext.pageProps} />
+        </Routers>
+      </Provider>
     </BrowserRouter>
-  )
+  );
 }
 
 export { render }

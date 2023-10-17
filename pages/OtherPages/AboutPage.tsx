@@ -3,7 +3,7 @@ import React from "react";
 export const AboutPage:React.FC = () => {
   return (
     <>
-      <h2>About</h2>
+      <h1>About</h1>
       <p>
         Note how the elapsed time above didn't reset when you switched to the /about page.
       </p>
