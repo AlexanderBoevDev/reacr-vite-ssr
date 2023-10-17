@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export const PageHome:React.FC = () => {
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const count = useSelector((state) => state.value);
   const dispatch = useDispatch();
 
