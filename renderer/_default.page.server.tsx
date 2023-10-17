@@ -3,14 +3,17 @@ import { App } from './App';
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server';
 import logoUrl from '../public/logo.svg';
 import type { PageContextServer } from './pageContext';
+import { StaticRouter } from 'react-router-dom/server'
 
 async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext;
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined');
   const pageHtml = ReactDOMServer.renderToString(
-    <App pageContext={pageContext}>
-      <Page {...pageProps} />
-    </App>
+    <StaticRouter>
+      <App pageContext={pageContext}>
+        <Page {...pageProps} />
+      </App>
+    </StaticRouter>
   );
 
   const { documentProps } = pageContext.exports;

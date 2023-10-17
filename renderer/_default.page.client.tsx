@@ -1,6 +1,7 @@
 import { hydrateRoot } from 'react-dom/client';
 import { App } from './App';
 import type { PageContextClient } from './pageContext';
+import { BrowserRouter } from 'react-router-dom';
 
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext;
@@ -9,9 +10,11 @@ async function render(pageContext: PageContextClient) {
   if (!root) throw new Error('DOM element #react-root not found');
   hydrateRoot(
     root,
-    <App pageContext={pageContext}>
-      <Page {...pageProps} />
-    </App>
+    <BrowserRouter>
+      <App pageContext={pageContext}>
+        <Page {...pageProps} />
+      </App>
+    </BrowserRouter>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { PageContextProvider } from './usePageContext';
 import type { PageContext } from './pageContext';
 import { Link } from './components/Link';
@@ -16,13 +16,13 @@ function App({ children, pageContext }: { children: React.ReactNode; pageContext
         <Layout>
           <Sidebar>
             <Logo />
-            <Link className="navitem" href="/">
+            <Link className="navitem" href={'/'}>
               Home
             </Link>
-            <Link className="navitem" href="/about">
+            <Link className="navitem" href={'/about'}>
               About
             </Link>
-            <Link className="navitem" href="/contact">
+            <Link className="navitem" href={'/contact'}>
               Contact
             </Link>
           </Sidebar>
