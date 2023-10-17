@@ -6,7 +6,12 @@
   "type": "module",
   "keywords": [
     "React",
+    "React router",
+    "React router dom",
+    "React redux",
+    "Redux & toolkit",
     "Vite",
+    "env",
     "SSR"
   ],
   "author": "Alexander Boev",
