@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import { Provider } from 'react-redux';
 import { getStore } from './store';
 import { escapeInject, dangerouslySkipEscape } from 'vike/server';
-import { Routers } from "./routers";
+import { Router } from "./_default.page.route";
 
 const passToClient = ['PRELOADED_STATE','pageProps'];
 
@@ -24,9 +24,9 @@ async function onBeforeRender(pageContext) {
   const pageHtml = renderToString(
     <StaticRouter location={urlPathname}>
       <Provider store={store}>
-        <Routers>
+        <Router>
           <Page {...pageProps}/>
-        </Routers>
+        </Router>
       </Provider>
     </StaticRouter>
   )

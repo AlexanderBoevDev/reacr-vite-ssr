@@ -1,6 +1,6 @@
 import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { Routers } from "./routers";
+import { Router } from "./_default.page.route";
 import { Provider } from 'react-redux';
 import { getStore } from './store';
 
@@ -11,9 +11,9 @@ async function render(pageContext) {
     document.getElementById('react-root'),
     <BrowserRouter>
       <Provider store={store}>
-        <Routers>
+        <Router>
           <Page {...pageContext.pageProps} />
-        </Routers>
+        </Router>
       </Provider>
     </BrowserRouter>
   );

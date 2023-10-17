@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-export const HomePage:React.FC = () => {
+export const PageHome:React.FC = () => {
 
   const count = useSelector((state) => state.value);
   const dispatch = useDispatch();
-  
+
   const increment = () => dispatch({ type: 'counter/incremented' });
   const decrement = () => dispatch({ type: 'counter/decremented' });
 
