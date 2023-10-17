@@ -13,7 +13,7 @@ async function render(pageContext) {
   return escapeInject`<!DOCTYPE html>
     <html lang="en">
       <body>
-        <div id="react-root">${dangerouslySkipEscape(pageHtml)}</div>
+        <div id="app">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`
 }
@@ -24,7 +24,7 @@ async function onBeforeRender(pageContext) {
   const pageHtml = renderToString(
     <StaticRouter location={urlPathname}>
       <Provider store={store}>
-        <Router>
+        <Router{...pageContext.pageProps}>
           <Page {...pageProps}/>
         </Router>
       </Provider>

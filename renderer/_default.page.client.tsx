@@ -8,10 +8,10 @@ async function render(pageContext) {
   const { Page } = pageContext;
   const store = getStore(pageContext.PRELOADED_STATE);
   hydrateRoot(
-    document.getElementById('react-root'),
+    document.getElementById('app'),
     <BrowserRouter>
       <Provider store={store}>
-        <Router>
+        <Router{...pageContext.pageProps}>
           <Page {...pageContext.pageProps} />
         </Router>
       </Provider>
