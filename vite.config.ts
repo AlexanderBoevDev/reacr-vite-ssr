@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react'
-import ssr from 'vite-plugin-ssr/plugin'
 import { UserConfig } from 'vite'
+import vike from 'vike/plugin'
 
 const config: UserConfig = {
   plugins: [
     react(),
-    ssr()
+    vike(),
   ],
   envPrefix: 'APP_',
 }
