@@ -1,12 +1,12 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
-import { Provider } from 'react-redux';
-import { getStore } from './store';
-import { escapeInject, dangerouslySkipEscape } from 'vike/server';
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom/server";
+import { Provider } from "react-redux";
+import { getStore } from "./store";
+import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import { Router } from "./_default.page.route";
 
-const passToClient = ['PRELOADED_STATE','pageProps'];
+const passToClient = ["PRELOADED_STATE","pageProps"];
 
 async function render(pageContext) {
   const { pageHtml } = pageContext
@@ -22,7 +22,7 @@ async function onBeforeRender(pageContext) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const store = getStore();
-  const { Page, pageProps, urlPathname } = pageContext
+  const { Page, pageProps, urlPathname } = pageContext;
   const pageHtml = renderToString(
     <StaticRouter location={urlPathname}>
       <Provider store={store}>
