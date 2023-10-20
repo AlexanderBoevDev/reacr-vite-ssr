@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import "../scss/main.scss";
 
 //console.log(import.meta.env);
 
 export const Page:React.FC = () => {
   return (
     <>
-      <header>
+      <header className="container-xxl">
         <ul>
           <li>
             <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}>
@@ -25,10 +26,10 @@ export const Page:React.FC = () => {
           </li>
         </ul>
       </header>
-      <main>
+      <main className="container-xxl">
         <Outlet />
       </main>
-      <footer>
+      <footer className="container-xxl">
         <div className="container-fluid container-xxl">
           <p>© { (new Date().getFullYear()) } Company, Inc</p>
         </div>

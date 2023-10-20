@@ -1,4 +1,3 @@
-import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { Provider } from "react-redux";
@@ -9,11 +8,19 @@ import { Router } from "./_default.page.route";
 const passToClient = ["PRELOADED_STATE","pageProps"];
 
 async function render(pageContext) {
-  const { pageHtml } = pageContext
+  const { pageHtml } = pageContext;
+  
   return escapeInject`<!DOCTYPE html>
     <html lang="en">
+      <head>
+        <title>React vite SSR</title>
+        <meta name="description" content="React pattern with vite and ssr page.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
       <body>
-        <div id="app">${dangerouslySkipEscape(pageHtml)}</div>
+        <div id="app">
+          ${dangerouslySkipEscape(pageHtml)}
+         </div>
       </body>
     </html>`
 }
